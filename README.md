@@ -1,4 +1,10 @@
-# Group16
+# Group16 - Comparative analysis between OS161 and Xv6 operating systems
+
+## Team members
+
+- Baracco Thomas, s308722
+- Masciari Luca, s317624
+- Valeriano Carlos Gerardo, s308747
 
 ## Xv6 Operating System Installation Guide
 
@@ -6,9 +12,41 @@ This guide provides step-by-step instructions for installing the Xv6 operating s
 
 Before you begin, make sure you have the following prerequisites installed on your system:
 
-## Ubuntu prerequisites (todo)
+## Ubuntu prerequisites
 
-## MacOS (Silicon) prerequisites
+1. First, clone the repository for the RISC-V GNU Compiler Toolchain:
+
+   ```bash
+   git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
+   ```
+
+2. Next, make sure you have the packages needed to compile the toolchain:
+
+   ```bash
+    sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev
+   ```
+
+3. Configure and build the toolchain:
+
+   ```bash
+    $ cd riscv-gnu-toolchain
+    $ ./configure --prefix=/usr/local
+    $ sudo make
+    $ cd ..
+   ```
+
+4. Download and install qemu
+
+   ```bash
+   wget https://download.qemu.org/qemu-8.2.0.tar.xz
+   tar xvJf qemu-8.2.0.tar.xz
+   cd qemu-8.2.0
+   ./configure --disable-kvm --disable-werror --prefix=/usr/local --target-list="riscv64-softmmu"
+   make
+   sudo make install
+   ```
+
+## MacOS (silicon) prerequisites
 
 1. Open a terminal
 
@@ -108,3 +146,11 @@ To clean up the Xv6 build files, you can use:
 ```bash
 make clean
 ```
+
+## Credits
+
+Tutorial guides used to put together this documentation:
+
+- https://pdos.csail.mit.edu/6.828/2019/tools.html
+- https://www.qemu.org/download/#source
+- https://github.com/BASARANOMO/xv6-labs-2020/issues/1
