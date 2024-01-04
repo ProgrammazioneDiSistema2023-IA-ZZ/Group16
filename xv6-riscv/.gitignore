@@ -10,6 +10,7 @@ bootblock
 entryother
 initcode
 initcode.out
+mkfs/mkfs
 kernelmemfs
 kernel/kernel
 user/usys.S
