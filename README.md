@@ -17,13 +17,13 @@ Before you begin, make sure you have the following prerequisites installed on yo
 1. First, clone the repository for the RISC-V GNU Compiler Toolchain:
 
    ```bash
-   git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
+   git clone https://github.com/riscv/riscv-gnu-toolchain
    ```
 
 2. Next, make sure you have the packages needed to compile the toolchain:
 
    ```bash
-    sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev
+    sudo apt-get install autoconf automake autotools-dev curl libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev python3 python3-pip ninja-build cmake libglib2.0-dev
    ```
 
 3. Configure and build the toolchain:
