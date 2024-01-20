@@ -66,7 +66,22 @@ usertrap(void)
 
     syscall();
   } else if((which_dev = devintr()) != 0){
-    // ok
+    // device interrupt
+
+    // alarm feature
+    if (which_dev == 2 && !p->alarm_on) { // timer interrupt (device 2)
+      
+      // save trapframe
+      p->alarm_on = 1;
+      struct trapframe *tf = kalloc();
+      memmove(tf, p->trapframe, PGSIZE);
+      p->alarm_tf = tf;
+
+      // increase current ticks each timer interrupt
+      p->cur_ticks++;
+      p->trapframe->epc = p->handler;   // set user program counter to alarm handler
+    }
+
   } else {
     printf("usertrap(): unexpected scause %p pid=%d\n", r_scause(), p->pid);
     printf("            sepc=%p stval=%p\n", r_sepc(), r_stval());

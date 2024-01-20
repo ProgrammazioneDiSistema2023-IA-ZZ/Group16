@@ -12,7 +12,7 @@ This guide provides step-by-step instructions for installing the Xv6 operating s
 
 Before you begin, make sure you have the following prerequisites installed on your system:
 
-## Ubuntu prerequisites
+### Ubuntu prerequisites
 
 1. First, clone the repository for the RISC-V GNU Compiler Toolchain:
 
@@ -46,7 +46,7 @@ Before you begin, make sure you have the following prerequisites installed on yo
    sudo make install
    ```
 
-## MacOS (silicon) prerequisites
+### MacOS (silicon) prerequisites
 
 1. Open a terminal
 
@@ -110,7 +110,7 @@ Before you begin, make sure you have the following prerequisites installed on yo
     make install
     ```
 
-## Clone the Xv6 Repository
+### Clone the Xv6 Repository
 
 1. Open a terminal.
 
@@ -121,7 +121,7 @@ Before you begin, make sure you have the following prerequisites installed on yo
    cd xv6-riscv
    ```
 
-## Build and run Xv6
+### Build and run Xv6
 
 1. Build Xv6:
 
@@ -139,7 +139,7 @@ This command will launch QEMU, and you should see the Xv6 shell.
 
 To exit QEMU you can enter `ctrl+a` and then `x`.
 
-## Cleanup
+### Cleanup
 
 To clean up the Xv6 build files, you can use:
 
@@ -147,7 +147,7 @@ To clean up the Xv6 build files, you can use:
 make clean
 ```
 
-## Credits
+### Credits
 
 Tutorial guides used to put together this documentation:
 
