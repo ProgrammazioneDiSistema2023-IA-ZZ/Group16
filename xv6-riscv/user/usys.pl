@@ -36,3 +36,6 @@ entry("getpid");
 entry("sbrk");
 entry("sleep");
 entry("uptime");
+entry("sem_init");
+entry("sem_wait");
+entry("sem_signal");
