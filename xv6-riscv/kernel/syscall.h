@@ -22,3 +22,6 @@
 #define SYS_close  21
 #define SYS_sigalarm  22
 #define SYS_sigreturn 23
+#define SYS_sem_init 24
+#define SYS_sem_wait 25
+#define SYS_sem_signal 26

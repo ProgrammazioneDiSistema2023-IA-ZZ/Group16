@@ -28,7 +28,8 @@ OBJS = \
   $K/sysfile.o \
   $K/kernelvec.o \
   $K/plic.o \
-  $K/virtio_disk.o
+  $K/virtio_disk.o \
+  $K/semaphore.o
 
 # riscv64-unknown-elf- or riscv64-linux-gnu-
 # perhaps in /opt/riscv/bin
@@ -128,6 +129,7 @@ UPROGS=\
 	$U/_mkdir\
 	$U/_pingpong\
 	$U/_rm\
+	$U/_semtest\
 	$U/_sh\
 	$U/_sleep\
 	$U/_stressfs\

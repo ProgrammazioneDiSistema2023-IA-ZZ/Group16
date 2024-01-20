@@ -4,7 +4,10 @@
 #include "param.h"
 #include "memlayout.h"
 #include "spinlock.h"
+#include "semaphore.h"
 #include "proc.h"
+
+struct semaphore sems[10];  //semaphores for user's programs
 
 uint64
 sys_exit(void)
@@ -112,5 +115,39 @@ sys_sigreturn(void)
   kfree(p->alarm_tf);                           // free the memory allocated for the saved alarm trap trapframe.
   p->cur_ticks = 0;
   p->alarm_on = 0;
+  return 0;
+}
+
+uint64
+sys_sem_init(void)
+{
+  int sem, count;
+  argint(0, &sem);
+  argint(1, &count);
+  if (sem < 0 || sem > 10)
+    return -1;
+  initsemaphore(&sems[sem], "usersem", count);
+  return 0;
+}
+
+uint64
+sys_sem_wait(void)
+{
+  int sem;
+  argint(0, &sem);
+  if (sem < 0 || sem > 10)
+    return -1;
+  P(&sems[sem]);
+  return 0;
+}
+
+uint64
+sys_sem_signal(void)
+{
+  int sem;
+  argint(0, &sem);
+  if (sem < 0 || sem > 10)
+    return -1;
+  V(&sems[sem]);
   return 0;
 }

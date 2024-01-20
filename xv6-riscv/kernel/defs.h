@@ -6,6 +6,7 @@ struct pipe;
 struct proc;
 struct spinlock;
 struct sleeplock;
+struct semaphore;
 struct stat;
 struct superblock;
 
@@ -123,6 +124,11 @@ void            acquiresleep(struct sleeplock*);
 void            releasesleep(struct sleeplock*);
 int             holdingsleep(struct sleeplock*);
 void            initsleeplock(struct sleeplock*, char*);
+
+// semaphore.c
+void            P(struct semaphore *);
+void            V(struct semaphore *);
+void            initsemaphore(struct semaphore *, char *, int);
 
 // string.c
 int             memcmp(const void*, const void*, uint);
