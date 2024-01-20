@@ -165,4 +165,8 @@ The objective of this task is to enhance the functionalities of the Xv6 OS by im
 
 ### Part 2:
 
-### Part 3:
+### Part 3: File System
+
+#### Task: Increasing of the maximum size of a xv6 file
+
+The objective of this task is to increase the maximum size of an xv6 file. Currently xv6 files are limited to 268 blocks, or 268*BSIZE bytes (BSIZE is 1024 in xv6). This limit comes from the fact that an xv6 inode contains 12 "direct" block numbers and one "singly-indirect" block number, which refers to a block that holds up to 256 more block numbers, for a total of 12+256=268 blocks.
